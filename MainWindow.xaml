@@ -1,14 +1,14 @@
 ﻿<Window x:Name="Main" x:Class="GumshoeIM.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Verb" Height="520" Width="300" GotFocus="Main_GotFocus">
+        Title="Verb" Height="520" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="92" MinHeight="92" />
             <RowDefinition Height="3"/>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Canvas x:Name="canvasHeader" Grid.Row="0" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="292" ToolTipOpening="canvasHeader_ToolTipOpening" ToolTip="#" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+        <Canvas x:Name="CanvasHeader" Grid.Row="0" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="292" ToolTipOpening="canvasHeader_ToolTipOpening" ToolTip="#" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
             <Grid Canvas.Left="13" Canvas.Top="17">
                 <Border Name="Mask" Background="White" CornerRadius="7" BorderBrush="Black"/>
                 <Border x:Name="DropShadow" CornerRadius="10" BorderBrush="Black">
@@ -17,7 +17,7 @@
                     </Border.Effect>
                     <StackPanel>
                         <StackPanel.OpacityMask>
-                                <VisualBrush Visual="{Binding ElementName=Mask}"/>
+                            <VisualBrush Visual="{Binding ElementName=Mask}"/>
                         </StackPanel.OpacityMask>
                         <Image x:Name="imageUserPicture" Height="64" Width="64" ToolTip="Your public image" Source="U:/test1.png" Margin="2"/>
                     </StackPanel>
@@ -25,33 +25,24 @@
             </Grid>
             <Label x:Name="labelName" Content="Beau Palmer-Brame" Canvas.Left="89" Canvas.Top="20" FontWeight="Bold" FontSize="14" ToolTip="Your public name"/>
             <Label x:Name="labelStatus" Content="Currently developing with C#" Canvas.Left="89" Canvas.Top="37" FontSize="10"/>
-            <Image x:Name="imageStatus" Height="16" Canvas.Left="234" Canvas.Top="27" Width="16"/>
+            <Border Name="BorderCircle" Background="White" CornerRadius="10"/>
+            <Rectangle Fill="#FF2FC121" Width="10" Height="10" RadiusX="45" RadiusY="45" Canvas.Left="230" Canvas.Top="31"/>
         </Canvas>
         <GridSplitter Grid.Row="1" Height="5" Width="Auto" HorizontalAlignment="Stretch" ResizeDirection="Rows" />
-        <Canvas x:Name="CanvasContent" Grid.Row="2" MaxHeight="400" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
-            <TabControl Height="395" Width="292" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="#A58C8E94">
-                <TabItem Header="TabItem" Margin="0" BorderBrush="White">
-                    <Grid Background="#FFE5E5E5">
-                        <Canvas x:Name="CanvasContacts" Margin="-3">
-                            <Canvas.Background>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="#FF9099BF" Offset="0"/>
-                                    <GradientStop Color="#FF4E5883" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Canvas.Background>
-                        </Canvas>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="TabItem">
-                    <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                </TabItem>
-            </TabControl>
-        </Canvas>
-        <Menu x:Name="MenuMain" HorizontalAlignment="Left" Height="0" Margin="0,0,0,0" VerticalAlignment="Top" Width="300" Background="{DynamicResource {x:Static SystemColors.MenuBrushKey}}">
-            <MenuItem Header="Menu">
-                <MenuItem Header="Exit"/>
-            </MenuItem>
-        </Menu>
+        <Grid Grid.Row="2">
+            <Canvas Margin="0,0,0,-392">
+                <Button Content="Contacts" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="10" Canvas.Top="2" BorderThickness="0" BorderBrush="#00707070" Background="#FFF3F3F3"/>
+                <Button Content="Groups" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="90" Canvas.Top="2" BorderThickness="0" BorderBrush="#00707070" Background="#FFF3F3F3"/>
+                <Border BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderThickness="0,1,0,0" Height="365" Canvas.Top="28" Width="292" CornerRadius="2">
+                    <Canvas>
+                        <StackPanel Height="344" Canvas.Left="10" Canvas.Top="10" Width="272" Background="#FFD38550">
+                            <Label Content="Label"/>
+                        </StackPanel>
+                    </Canvas>
+                </Border>
+            </Canvas>
+        </Grid>
 
     </Grid>
+
 </Window>

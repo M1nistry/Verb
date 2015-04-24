@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace GumshoeIM
 {
@@ -20,12 +18,7 @@ namespace GumshoeIM
         private void canvasHeader_ToolTipOpening(object sender, ToolTipEventArgs e)
         {
             e.Handled = true;
-            if (MenuMain.Height < 20) MenuMain.Height = 20;
-        }
-
-        private void Main_GotFocus(object sender, RoutedEventArgs e)
-        {
-            
+            //if (MenuMain.Height < 20) MenuMain.Height = 20;
         }
     }
 }
