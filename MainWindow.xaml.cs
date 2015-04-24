@@ -14,11 +14,7 @@ namespace GumshoeIM
         public MainWindow()
         {
             InitializeComponent();
-            var userImage = new BitmapImage
-            {
-                BaseUri = new Uri(@"C:\Users\M1nistry\Pictures\Other\me.png")
-            };
-            imageUserPicture.Source = userImage;
+            //imageUserPicture.Source = new BitmapImage(new Uri(@"U:\test1.png", UriKind.Relative));
         }
 
         private void canvasHeader_ToolTipOpening(object sender, ToolTipEventArgs e)
